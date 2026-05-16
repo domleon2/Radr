@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-background: #020205;
+  --color-card: #0d1117;
+  --color-accent: #f97316;
+  --animate-spin-slow: spin-slow 8s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@layer base {
+  html, body {
+    @apply bg-[#020205] text-slate-200 antialiased m-0 p-0 overflow-hidden h-full w-full;
+  }
+}
+
+.main-canvas {
+  @apply flex-1 overflow-y-auto overflow-x-hidden;
+  scrollbar-gutter: stable;
+}
+
+.kanban-column {
+  @apply bg-white/[0.015] border border-white/5 rounded-[2.5rem] p-6 flex flex-col transition-all duration-500;
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+}
+
+.kanban-column:hover {
+  @apply bg-white/[0.025] border-white/10;
+  box-shadow: 0 20px 40px -15px rgba(249, 115, 22, 0.05);
+}
+
+.bento-card {
+  @apply bg-white/[0.01] border border-white/[0.06] backdrop-blur-3xl rounded-[2.5rem] transition-all duration-500 relative overflow-hidden;
+}
+
+.bento-card:hover {
+  @apply border-orange-500/40 bg-white/[0.03];
+  box-shadow: 0 0 40px -10px rgba(249, 115, 22, 0.1);
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
